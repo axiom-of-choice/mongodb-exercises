@@ -1,9 +1,13 @@
+from json import load
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
 
 # Requires the PyMongo package.
 # https://api.mongodb.com/python/current
-
-client = MongoClient('mongodb+srv://axiom-of-choice:458Wo8qMfM55l80t@cluster0.epz53.mongodb.net/test')
+load_dotenv()
+client = MongoClient(os.environ['MONGO_LOGIN'])
 filter={
     'id': {
         '$in': [
