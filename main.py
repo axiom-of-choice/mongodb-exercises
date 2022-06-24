@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 # https://api.mongodb.com/python/current
 load_dotenv()
 client = MongoClient(os.environ['MONGO_LOGIN'])
+
+##Filters
 filter={
     'id': {
         '$in': [
@@ -22,3 +24,4 @@ result = client['sample_mflix']['movies'].find(
 
 for item in result:
     print(item)
+    
